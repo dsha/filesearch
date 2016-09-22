@@ -25,8 +25,8 @@ public class IndexBuilderTest {
 
   @Test
   public void index_two_files_with_multiple_occurrences() throws IOException {
-    final WordIndex wordIndex = TestUtil.buildIndex("This is the first file, and the first occurrence", "This is the second file");
+    final WordIndex wordIndex = TestUtil.buildIndex("This is the first file, and the first occurrence", "This is the second file, and it's diferent from the previous file.");
     assertContains(wordIndex, "first", new WordFileOccurrence("first", 0, 2));
+    assertContains(wordIndex, "file", new WordFileOccurrence("file", 0, 1), new WordFileOccurrence("file", 1, 2));
   }
-
 }
